@@ -80,7 +80,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Rainbow Six Siege — Nova era tática" },
       {
         name: "description",
-        content: "A nova temporada de Rainbow Six Siege com acesso gratuito, Passe_CTX passa de batalha, drops e notas da atualização.",
+        content: "A nova temporada de Rainbow Six Siege com acesso gratuito, passe de batalha, drops e notas da atualização.",
       },
       { name: "author", content: "Ubisoft" },
       { property: "og:title", content: "Rainbow Six Siege — Nova era tática" },
