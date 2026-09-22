@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Activity, ArrowRight, CalendarDays, ChevronRight, Flame, Radio, Shield, Trophy } from "lucide-react";
+import { Activity, ArrowRight, CalendarDays, ChevronDown, ChevronRight, Flame, Radio, Shield, Trophy } from "lucide-react";
+import { useState } from "react";
 
 import battlePassImage from "@/assets/r6-battle-pass-rewards.jpg";
 import newsImage from "@/assets/r6-community-news.jpg";
@@ -55,7 +56,42 @@ const stats = [
   ["1º SET", "Temporada lançada"],
 ];
 
+const faqItems = [
+  {
+    question: "O Rainbow Six Siege é gratuito?",
+    answer:
+      "Sim. Com o Acesso Gratuito você pode entrar agora e jogar modos selecionados sem pagar nada. Para desbloquear todo o conteúdo competitivo e o Passe de Batalha completo, é possível fazer upgrade para a edição completa.",
+  },
+  {
+    question: "O que inclui o Passe de Batalha da Operation Split Fire?",
+    answer:
+      "O Passe de Batalha permite desbloquear recompensas ao completar partidas multiplayer, incluindo fichas, blocos, skins exclusivas e itens cosméticos. A versão Premium e a Assinatura R6 aceleram o progresso e adicionam recompensas extras.",
+  },
+  {
+    question: "Quando termina a temporada Operation Split Fire?",
+    answer:
+      "A temporada vai de 1º de setembro a 1º de dezembro de 2026. Recompensas por tempo limitado só podem ser resgatadas durante esse período, então avance no passe antes do encerramento.",
+  },
+  {
+    question: "Quem é a nova operadora Noor?",
+    answer:
+      "Noor é a nova operadora da Operation Split Fire, especializada em neutralizar escudos balísticos. Seu gadget Lança Hórus é um projétil que adere a escudos ou superfícies e emite chamas, forçando defensores a sair da posição.",
+  },
+  {
+    question: "Como funcionam os Drops da Twitch?",
+    answer:
+      "Vincule sua conta Ubisoft à Twitch e assista às transmissões oficiais durante eventos como o Wasteland Circuit para ganhar drops exclusivos e distintivos diretamente no jogo.",
+  },
+  {
+    question: "Onde encontro as notas da atualização Y11S3?",
+    answer:
+      "As notas completas do patch Y11S3 estão disponíveis na seção de notícias desta página, incluindo o adendo mais recente com ajustes de balanceamento e correções.",
+  },
+];
+
 function Index() {
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
+
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
       <header className="fixed inset-x-0 top-0 z-50 border-b border-siege-line bg-background/80 backdrop-blur-md">
@@ -76,6 +112,9 @@ function Index() {
             ))}
           </nav>
           <div className="flex items-center gap-2">
+            <Button asChild variant="intel" size="sm">
+              <a href="#faq">FAQ</a>
+            </Button>
             <Button asChild variant="tactical" size="sm">
               <a href="#status">Status do serviço</a>
             </Button>
@@ -260,6 +299,46 @@ function Index() {
               <Button asChild variant="tactical" size="command" className="mt-8">
                 <a href="#patch-notes">Ver Notas da Atualização</a>
               </Button>
+            </div>
+          </div>
+        </section>
+
+        <section id="faq" className="border-t border-siege-line bg-background py-20 md:py-28">
+          <div className="mx-auto max-w-4xl px-4 md:px-8">
+            <p className="mb-3 flex items-center gap-2 text-sm font-bold uppercase text-primary">
+              <Shield className="h-4 w-4" /> Central de inteligência
+            </p>
+            <h2 className="font-display text-5xl font-bold uppercase leading-none md:text-7xl">
+              Perguntas frequentes
+            </h2>
+            <div className="mt-10 divide-y divide-siege-line border border-siege-line bg-card">
+              {faqItems.map((item, index) => {
+                const isOpen = openFaq === index;
+                return (
+                  <div key={item.question}>
+                    <button
+                      type="button"
+                      onClick={() => setOpenFaq(isOpen ? null : index)}
+                      aria-expanded={isOpen}
+                      className="flex w-full items-center justify-between gap-4 p-5 text-left transition-colors hover:bg-secondary md:p-6"
+                    >
+                      <span className="font-display text-xl font-bold uppercase text-foreground md:text-2xl">
+                        {item.question}
+                      </span>
+                      <ChevronDown
+                        className={`h-6 w-6 shrink-0 text-primary transition-transform duration-300 ${
+                          isOpen ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+                    {isOpen && (
+                      <p className="border-t border-siege-line px-5 pb-6 pt-4 text-lg font-medium text-muted-foreground md:px-6">
+                        {item.answer}
+                      </p>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
