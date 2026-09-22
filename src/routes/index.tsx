@@ -56,7 +56,42 @@ const stats = [
   ["1º SET", "Temporada lançada"],
 ];
 
+const faqItems = [
+  {
+    question: "O Rainbow Six Siege é gratuito?",
+    answer:
+      "Sim. Com o Acesso Gratuito você pode entrar agora e jogar modos selecionados sem pagar nada. Para desbloquear todo o conteúdo competitivo e o Passe de Batalha completo, é possível fazer upgrade para a edição completa.",
+  },
+  {
+    question: "O que inclui o Passe de Batalha da Operation Split Fire?",
+    answer:
+      "O Passe de Batalha permite desbloquear recompensas ao completar partidas multiplayer, incluindo fichas, blocos, skins exclusivas e itens cosméticos. A versão Premium e a Assinatura R6 aceleram o progresso e adicionam recompensas extras.",
+  },
+  {
+    question: "Quando termina a temporada Operation Split Fire?",
+    answer:
+      "A temporada vai de 1º de setembro a 1º de dezembro de 2026. Recompensas por tempo limitado só podem ser resgatadas durante esse período, então avance no passe antes do encerramento.",
+  },
+  {
+    question: "Quem é a nova operadora Noor?",
+    answer:
+      "Noor é a nova operadora da Operation Split Fire, especializada em neutralizar escudos balísticos. Seu gadget Lança Hórus é um projétil que adere a escudos ou superfícies e emite chamas, forçando defensores a sair da posição.",
+  },
+  {
+    question: "Como funcionam os Drops da Twitch?",
+    answer:
+      "Vincule sua conta Ubisoft à Twitch e assista às transmissões oficiais durante eventos como o Wasteland Circuit para ganhar drops exclusivos e distintivos diretamente no jogo.",
+  },
+  {
+    question: "Onde encontro as notas da atualização Y11S3?",
+    answer:
+      "As notas completas do patch Y11S3 estão disponíveis na seção de notícias desta página, incluindo o adendo mais recente com ajustes de balanceamento e correções.",
+  },
+];
+
 function Index() {
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
+
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
       <header className="fixed inset-x-0 top-0 z-50 border-b border-siege-line bg-background/80 backdrop-blur-md">
