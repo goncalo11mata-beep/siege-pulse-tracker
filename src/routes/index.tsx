@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Activity, ArrowRight, CalendarDays, ChevronRight, Flame, Radio, Shield, Trophy } from "lucide-react";
+import { Activity, ArrowRight, CalendarDays, ChevronDown, ChevronRight, Flame, Radio, Shield, Trophy } from "lucide-react";
+import { useState } from "react";
 
 import battlePassImage from "@/assets/r6-battle-pass-rewards.jpg";
 import newsImage from "@/assets/r6-community-news.jpg";
