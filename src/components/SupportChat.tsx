@@ -63,7 +63,7 @@ export function SupportChat() {
       )}
 
       {open && (
-        <div className="fixed bottom-0 right-0 z-[60] flex h-[min(80vh,620px)] w-full flex-col border border-siege-line bg-card shadow-[var(--shadow-breach)] sm:bottom-5 sm:right-5 sm:w-[400px]">
+        <div className="fixed bottom-0 right-0 z-[60] flex h-[min(80vh,620px)] w-full flex-col border border-siege-line bg-background shadow-[var(--shadow-breach)] sm:bottom-5 sm:right-5 sm:w-[400px]">
           <div className="flex items-center justify-between gap-3 border-b border-siege-line bg-siege-smoke px-4 py-3">
             <div className="flex items-center gap-3">
               <span className="flex h-9 w-9 items-center justify-center border border-primary bg-secondary font-display text-sm font-bold text-primary">
