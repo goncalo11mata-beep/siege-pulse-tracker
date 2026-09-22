@@ -112,6 +112,9 @@ function Index() {
             ))}
           </nav>
           <div className="flex items-center gap-2">
+            <Button asChild variant="intel" size="sm">
+              <a href="#faq">FAQ</a>
+            </Button>
             <Button asChild variant="tactical" size="sm">
               <a href="#status">Status do serviço</a>
             </Button>
@@ -296,6 +299,46 @@ function Index() {
               <Button asChild variant="tactical" size="command" className="mt-8">
                 <a href="#patch-notes">Ver Notas da Atualização</a>
               </Button>
+            </div>
+          </div>
+        </section>
+
+        <section id="faq" className="border-t border-siege-line bg-background py-20 md:py-28">
+          <div className="mx-auto max-w-4xl px-4 md:px-8">
+            <p className="mb-3 flex items-center gap-2 text-sm font-bold uppercase text-primary">
+              <Shield className="h-4 w-4" /> Central de inteligência
+            </p>
+            <h2 className="font-display text-5xl font-bold uppercase leading-none md:text-7xl">
+              Perguntas frequentes
+            </h2>
+            <div className="mt-10 divide-y divide-siege-line border border-siege-line bg-card">
+              {faqItems.map((item, index) => {
+                const isOpen = openFaq === index;
+                return (
+                  <div key={item.question}>
+                    <button
+                      type="button"
+                      onClick={() => setOpenFaq(isOpen ? null : index)}
+                      aria-expanded={isOpen}
+                      className="flex w-full items-center justify-between gap-4 p-5 text-left transition-colors hover:bg-secondary md:p-6"
+                    >
+                      <span className="font-display text-xl font-bold uppercase text-foreground md:text-2xl">
+                        {item.question}
+                      </span>
+                      <ChevronDown
+                        className={`h-6 w-6 shrink-0 text-primary transition-transform duration-300 ${
+                          isOpen ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+                    {isOpen && (
+                      <p className="border-t border-siege-line px-5 pb-6 pt-4 text-lg font-medium text-muted-foreground md:px-6">
+                        {item.answer}
+                      </p>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
