@@ -16,12 +16,18 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        breach:
+          "ember-gradient text-primary-foreground shadow-[var(--shadow-breach)] hover:brightness-110",
+        tactical:
+          "border border-siege-line bg-siege-smoke text-foreground hover:bg-secondary hover:text-secondary-foreground",
+        intel: "bg-siege-steel text-siege-steel-foreground hover:bg-muted",
       },
       size: {
         default: "h-9 px-4 py-2",
         sm: "h-8 rounded-md px-3 text-xs",
         lg: "h-10 rounded-md px-8",
         icon: "h-9 w-9",
+        command: "min-h-12 px-7 py-3 text-base uppercase tracking-normal md:min-h-14 md:px-9",
       },
     },
     defaultVariants: {
