@@ -1,12 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Activity, ArrowRight, CalendarDays, ChevronDown, ChevronRight, Flame, Radio, Shield, Trophy } from "lucide-react";
+import { Activity, ArrowRight, CalendarDays, ChevronDown, ChevronRight, Clock, Flame, Radio, Shield, Trophy, Video } from "lucide-react";
 import { useState } from "react";
 
 import battlePassImage from "@/assets/r6-battle-pass-rewards.jpg";
 import newsImage from "@/assets/r6-community-news.jpg";
 import heroImage from "@/assets/r6-tactical-hero.jpg";
 import splitFireImage from "@/assets/r6-split-fire-season.jpg";
+import { SupportChat } from "@/components/SupportChat";
 import { Button } from "@/components/ui/button";
+
+const CAL_LINK = "https://cal.com/goncalo-mata-9kgatr/reuniao-r6";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -114,6 +117,9 @@ function Index() {
           <div className="flex items-center gap-2">
             <Button asChild variant="intel" size="sm">
               <a href="#faq">FAQ</a>
+            </Button>
+            <Button asChild variant="intel" size="sm" className="hidden sm:inline-flex">
+              <a href="#agendar">Agendar reunião</a>
             </Button>
             <Button asChild variant="tactical" size="sm">
               <a href="#status">Status do serviço</a>
@@ -359,7 +365,54 @@ function Index() {
             </div>
           </div>
         </section>
+
+        <section id="agendar" className="section-gradient border-t border-siege-line py-20 md:py-28">
+          <div className="mx-auto max-w-7xl px-4 md:px-8">
+            <div className="grid gap-8 border border-siege-line bg-card p-6 md:p-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+              <div>
+                <p className="mb-3 flex items-center gap-2 text-sm font-bold uppercase text-primary">
+                  <Video className="h-4 w-4" /> Briefing individual
+                </p>
+                <h2 className="font-display text-5xl font-bold uppercase leading-none md:text-7xl">
+                  Agende uma reunião com a equipa
+                </h2>
+                <p className="mt-6 text-xl font-medium text-muted-foreground">
+                  Quer falar com uma pessoa real sobre edições, Passe de Batalha, conta ou parcerias?
+                  Escolha um horário no calendário e receba o convite por e-mail.
+                </p>
+                <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                  <div className="flex items-center gap-3 border border-siege-line bg-secondary p-4">
+                    <Clock className="h-6 w-6 shrink-0 text-primary" />
+                    <span className="text-base font-bold uppercase text-foreground">30 minutos, online</span>
+                  </div>
+                  <div className="flex items-center gap-3 border border-siege-line bg-secondary p-4">
+                    <CalendarDays className="h-6 w-6 shrink-0 text-primary" />
+                    <span className="text-base font-bold uppercase text-foreground">Horário à sua escolha</span>
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-col gap-3 border border-siege-line bg-siege-smoke p-6">
+                <p className="font-display text-3xl font-bold uppercase leading-none text-siege-gold">
+                  Reunião R6
+                </p>
+                <p className="text-base font-medium text-muted-foreground">
+                  Marcação feita no Cal.com, sem registo necessário.
+                </p>
+                <Button asChild variant="breach" size="command" className="mt-2">
+                  <a href={CAL_LINK} target="_blank" rel="noopener noreferrer">
+                    Agendar reunião <ArrowRight className="h-5 w-5" />
+                  </a>
+                </Button>
+                <Button asChild variant="tactical" size="sm">
+                  <a href="#faq">Antes disso, ver as perguntas frequentes</a>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
+
+      <SupportChat />
     </div>
   );
 }
