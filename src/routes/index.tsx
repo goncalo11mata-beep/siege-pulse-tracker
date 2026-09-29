@@ -6,6 +6,7 @@ import battlePassImage from "@/assets/r6-battle-pass-rewards.jpg";
 import newsImage from "@/assets/r6-community-news.jpg";
 import heroImage from "@/assets/r6-tactical-hero.jpg";
 import splitFireImage from "@/assets/r6-split-fire-season.jpg";
+import { ProposalForm } from "@/components/ProposalForm";
 import { SupportChat } from "@/components/SupportChat";
 import { Button } from "@/components/ui/button";
 
@@ -309,6 +310,8 @@ function Index() {
           </div>
         </section>
 
+        <ProposalForm />
+
         <section id="faq" className="border-t border-siege-line bg-background py-20 md:py-28">
           <div className="mx-auto max-w-4xl px-4 md:px-8">
             <p className="mb-3 flex items-center gap-2 text-sm font-bold uppercase text-primary">
@@ -358,6 +361,9 @@ function Index() {
             <div className="grid w-full gap-3 sm:grid-cols-2 md:w-auto">
               <Button asChild variant="breach" size="command">
                 <a href="#top">Acesso Gratuito</a>
+              </Button>
+              <Button asChild variant="tactical" size="command">
+                <a href="#proposta">Pedido de proposta</a>
               </Button>
               <Button asChild variant="intel" size="command">
                 <a id="patch-notes" href="#season">Ver Notas da Atualização</a>
